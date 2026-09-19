@@ -17,7 +17,9 @@
     "check": "tsc --noEmit && npx prettier . --check",
     "format": "npx prettier . --write",
     "test": "tsx --test",
-    "profile": "0x -D prof ./quartz/bootstrap-cli.mjs build --concurrency=1"
+    "profile": "0x -D prof ./quartz/bootstrap-cli.mjs build --concurrency=1",
+    "serve": "npx quartz build --serve -d ../CoWork/Traedoesthings",
+    "build:site": "npx quartz build -d ../CoWork/Traedoesthings"
   },
   "engines": {
     "npm": ">=10.9.2",
@@ -110,5 +112,10 @@
     "prettier": "^3.8.1",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.5.4": true,
+    "esbuild@0.27.2": true,
+    "sharp@0.34.5": true
   }
 }

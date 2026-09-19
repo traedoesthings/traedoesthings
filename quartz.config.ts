@@ -8,16 +8,23 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Quartz 4",
+    pageTitle: "Traedoesthings",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
-    analytics: {
-      provider: "plausible",
-    },
+    analytics: null,
     locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    baseUrl: "traedoesthings.pages.dev",
+    ignorePatterns: [
+      "private",
+      "templates",
+      ".obsidian",
+      "Private/**",
+      "Drafts/**",
+      "Templates/**",
+      "**/.obsidian/**",
+      "**/.trash/**",
+    ],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
