@@ -2,11 +2,11 @@
 title: Dough Guy Pizza Dough
 date: 2026-09-19
 tags: [recipe, pizza, dough, bread]
-source: https://doughguy.co/calculator
+source: https://doughguy.co/pages/dough
 draft: false
 ---
 
-Cold-fermented pizza dough scaled for four 16-inch pizzas at 480 g per ball. Long fridge rest builds the flavor. Adapted from the [Dough Guy calculator](https://doughguy.co/calculator).
+Cold-fermented pizza dough scaled for four 16-inch pizzas at 480 g per ball. Long fridge rest builds the flavor. Adapted from the [Dough Guy calculator](https://doughguy.co/pages/dough).
 
 ## At a Glance
 
@@ -78,4 +78,4 @@ Pull the dough balls out 1 to 2 hours before shaping so they come to room temper
 
 ## Source
 
-Recipe from [doughguy.co/calculator](https://doughguy.co/calculator). See their site for the calculator that scales this to any pie size or count.
+Recipe from [doughguy.co/pages/dough](https://doughguy.co/pages/dough). See their site for the calculator that scales this to any pie size or count.
