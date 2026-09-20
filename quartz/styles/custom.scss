@@ -1,60 +1,91 @@
 @use "./base.scss";
 
-// --- Homepage section nav cards ---
+// ============================================================
+// Homepage section nav cards
+// ============================================================
+
 .home-nav {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1rem;
-  margin: 2rem 0 2.5rem;
+  margin: 2.5rem 0 3rem;
 }
 
 .home-nav-card {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 1.25rem 1.5rem;
+  justify-content: flex-end;
+  min-height: 140px;
+  padding: 1.5rem 1.5rem 1.35rem;
   border: 1px solid var(--lightgray);
-  border-radius: 12px;
+  border-radius: 14px;
   background: var(--light);
   color: var(--dark);
   text-decoration: none !important;
   background-image: none !important;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
   transition:
-    transform 0.15s ease,
-    border-color 0.15s ease,
-    box-shadow 0.15s ease;
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  // Decorative accent bar on the left edge
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--secondary);
+    opacity: 0.5;
+    transition: opacity 0.2s ease, width 0.2s ease;
+  }
 
   .card-title {
     display: block;
-    margin: 0 0 0.35rem 0;
+    margin: 0 0 0.4rem 0;
     font-family: var(--headerFont);
-    font-size: 1.35rem;
+    font-size: 1.5rem;
     font-weight: 500;
-    color: var(--secondary);
-    line-height: 1.2;
+    color: var(--dark);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
   }
 
   .card-desc {
     display: block;
     margin: 0;
     color: var(--darkgray);
-    font-size: 0.9rem;
-    line-height: 1.4;
+    font-size: 0.88rem;
+    line-height: 1.45;
   }
 
   &:hover {
     border-color: var(--secondary);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     text-decoration: none !important;
+
+    &::before {
+      opacity: 1;
+      width: 6px;
+    }
+
+    .card-title {
+      color: var(--secondary);
+    }
   }
 }
 
-// --- Folder/category page cards ---
-// Overrides Quartz's default section-ul list rendering to look like cards
-.popover-hint > .page-listing > .section-ul,
-.page > article > .section-ul,
-article > .section-ul {
+// ============================================================
+// Folder / category page listing cards
+// (targets Quartz's PageList output on /recipes, /guides, etc.)
+// ============================================================
+
+.page-listing .section-ul {
   list-style: none;
   padding: 0;
   margin: 1.5rem 0;
@@ -62,83 +93,121 @@ article > .section-ul {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 0.9rem;
 
-  > .section-li {
+  .section-li {
     margin: 0;
     padding: 0;
 
-    > .section {
+    &::before {
+      content: none;
+    }
+  }
+
+  .section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 1.15rem 1.25rem;
+    border: 1px solid var(--lightgray);
+    border-radius: 12px;
+    background: var(--light);
+    height: 100%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--tertiary);
+      opacity: 0.6;
+      transition: opacity 0.2s ease, width 0.2s ease;
+    }
+
+    &:hover {
+      border-color: var(--secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+
+      &::before {
+        opacity: 1;
+        width: 5px;
+        background: var(--secondary);
+      }
+    }
+
+    .desc {
+      order: 1;
+
+      h3 {
+        margin: 0;
+        font-family: var(--headerFont);
+        font-size: 1.15rem;
+        font-weight: 500;
+        line-height: 1.25;
+        letter-spacing: -0.005em;
+
+        a {
+          color: var(--dark);
+          text-decoration: none !important;
+          background: none !important;
+          background-image: none !important;
+        }
+      }
+    }
+
+    ul.tags {
+      order: 2;
+      list-style: none;
+      padding: 0;
+      margin: 0.65rem 0 0 0;
       display: flex;
-      flex-direction: column;
-      padding: 1rem 1.15rem;
-      border: 1px solid var(--lightgray);
-      border-radius: 10px;
-      background: var(--light);
-      height: 100%;
-      transition:
-        transform 0.15s ease,
-        border-color 0.15s ease,
-        box-shadow 0.15s ease;
+      flex-wrap: wrap;
+      gap: 0.35rem;
 
-      &:hover {
-        border-color: var(--secondary);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      }
-
-      .meta {
-        order: 3;
-        margin: 0.6rem 0 0 0;
-        font-size: 0.75rem;
-        color: var(--gray);
-      }
-
-      .desc {
-        order: 1;
-
-        h3 {
-          margin: 0;
-          font-family: var(--headerFont);
-          font-size: 1.1rem;
-          line-height: 1.25;
-
-          a {
-            color: var(--dark);
-            text-decoration: none !important;
-            background: none !important;
-          }
-        }
-      }
-
-      ul.tags {
-        order: 2;
-        list-style: none;
+      li {
+        margin: 0;
         padding: 0;
-        margin: 0.5rem 0 0 0;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.35rem;
 
-        li {
-          margin: 0;
-          padding: 0;
+        &::before {
+          content: none;
+        }
 
-          .tag-link {
-            display: inline-block;
-            font-size: 0.72rem;
-            padding: 0.15rem 0.5rem;
-            background: var(--highlight);
-            color: var(--darkgray);
-            border-radius: 999px;
-            text-decoration: none !important;
-            transition: background 0.15s ease;
+        .tag-link {
+          display: inline-block;
+          font-size: 0.7rem;
+          font-weight: 500;
+          padding: 0.18rem 0.55rem;
+          background: var(--highlight);
+          color: var(--darkgray);
+          border-radius: 999px;
+          text-decoration: none !important;
+          background-image: none !important;
+          letter-spacing: 0.01em;
+          transition:
+            background 0.15s ease,
+            color 0.15s ease;
 
-            &:hover {
-              background: var(--tertiary);
-              color: var(--light);
-            }
+          &:hover {
+            background: var(--tertiary);
+            color: var(--light);
           }
         }
       }
+    }
+
+    .meta {
+      order: 3;
+      margin: 0.7rem 0 0 0;
+      font-size: 0.72rem;
+      color: var(--gray);
+      letter-spacing: 0.02em;
     }
   }
 }
