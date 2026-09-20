@@ -110,135 +110,177 @@
   gap: 1.25rem;
 }
 
-// Recent Notes on homepage: single column stack
-.recent-notes .recent-ul {
-  grid-template-columns: 1fr;
-  gap: 1rem;
+// ============================================================
+// Shared card layout for folder listing pages AND recent notes
+// Date on left, title top-right, tags below title
+// ============================================================
 
-  .section-li,
-  .recent-li {
-    margin: 0;
-    padding: 0;
+// Higher specificity than listPage.scss's li.section-li > .section
+.page-listing ul.section-ul,
+.recent-notes ul.recent-ul {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 1rem !important;
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+// Kill Quartz's default 3-column grid on the card body
+// (`li.section-li > .section` at spec 0,0,2,1 — beat it with 0,0,3,2)
+.page-listing ul.section-ul li.section-li,
+.recent-notes ul.recent-ul li.recent-li {
+  margin: 0 !important;
+  padding: 0 !important;
+
+  &::before {
+    content: none;
+  }
+}
+
+.page-listing ul.section-ul li.section-li > .section,
+.recent-notes ul.recent-ul li.recent-li > .section {
+  display: grid !important;
+  grid-template-columns: 4.5rem 1fr !important;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "meta desc"
+    "meta tags";
+  gap: 0.3rem 1rem;
+  align-items: start;
+  position: relative;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--lightgray);
+  border-radius: 12px;
+  background: var(--light);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--secondary);
+    opacity: 0.5;
+    transition:
+      opacity 0.2s ease,
+      width 0.2s ease;
+  }
+
+  &:hover {
+    border-color: var(--secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
 
     &::before {
-      content: none;
+      opacity: 1;
+      width: 6px;
+    }
+
+    .desc h3 a {
+      color: var(--secondary);
     }
   }
 
-  .section {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 1.5rem 1.5rem;
-    min-height: 130px;
-    border: 1px solid var(--lightgray);
-    border-radius: 14px;
-    background: var(--light);
-    height: 100%;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
-    overflow: hidden;
-    transition:
-      transform 0.2s ease,
-      border-color 0.2s ease,
-      box-shadow 0.2s ease;
+  // Date on the left
+  .meta {
+    grid-area: meta;
+    margin: 0 !important;
+    font-size: 0.7rem;
+    color: var(--gray);
+    line-height: 1.35;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    padding-top: 0.25rem;
+    // Ensure the accent bar doesn't push into the date text
+    padding-left: 0.5rem;
+  }
 
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      width: 4px;
-      background: var(--secondary);
-      opacity: 0.5;
-      transition: opacity 0.2s ease, width 0.2s ease;
+  // Title
+  .desc {
+    grid-area: desc;
+
+    h3 {
+      margin: 0;
+      font-family: var(--headerFont);
+      font-size: 1.25rem;
+      font-weight: 500;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+
+      a {
+        color: var(--dark);
+        text-decoration: none !important;
+        background: none !important;
+        background-image: none !important;
+        transition: color 0.15s ease;
+      }
     }
+  }
 
-    &:hover {
-      border-color: var(--secondary);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  // Tags at the bottom of the card (right column)
+  ul.tags {
+    grid-area: tags;
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    list-style: none;
+    padding: 0;
+    margin: 0.4rem 0 0 0 !important;
+
+    li {
+      margin: 0;
+      padding: 0;
 
       &::before {
-        opacity: 1;
-        width: 6px;
+        content: none;
       }
 
-      .desc h3 a {
-        color: var(--secondary);
-      }
-    }
-
-    .desc {
-      order: 1;
-
-      h3 {
-        margin: 0;
-        font-family: var(--headerFont);
-        font-size: 1.3rem;
+      .tag-link {
+        display: inline-block;
+        font-size: 0.68rem;
         font-weight: 500;
-        line-height: 1.2;
-        letter-spacing: -0.01em;
+        padding: 0.15rem 0.55rem;
+        background: var(--highlight);
+        color: var(--darkgray);
+        border-radius: 999px;
+        text-decoration: none !important;
+        background-image: none !important;
+        letter-spacing: 0.01em;
+        transition:
+          background 0.15s ease,
+          color 0.15s ease;
 
-        a {
-          color: var(--dark);
-          text-decoration: none !important;
-          background: none !important;
-          background-image: none !important;
-          transition: color 0.15s ease;
+        &:hover {
+          background: var(--tertiary);
+          color: var(--light);
         }
       }
     }
+  }
+}
 
-    ul.tags {
-      order: 2;
-      list-style: none;
-      padding: 0;
-      margin: 0.55rem 0 0 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.3rem;
-
-      li {
-        margin: 0;
-        padding: 0;
-
-        &::before {
-          content: none;
-        }
-
-        .tag-link {
-          display: inline-block;
-          font-size: 0.68rem;
-          font-weight: 500;
-          padding: 0.15rem 0.5rem;
-          background: var(--highlight);
-          color: var(--darkgray);
-          border-radius: 999px;
-          text-decoration: none !important;
-          background-image: none !important;
-          letter-spacing: 0.01em;
-          transition:
-            background 0.15s ease,
-            color 0.15s ease;
-
-          &:hover {
-            background: var(--tertiary);
-            color: var(--light);
-          }
-        }
-      }
-    }
+// Mobile: date sits on top of the title instead of left of it
+@media (max-width: 800px) {
+  .page-listing ul.section-ul li.section-li > .section,
+  .recent-notes ul.recent-ul li.recent-li > .section {
+    grid-template-columns: 1fr !important;
+    grid-template-areas:
+      "meta"
+      "desc"
+      "tags";
+    padding: 1.15rem 1.25rem;
 
     .meta {
-      order: 3;
-      margin: 0.6rem 0 0 0;
-      font-size: 0.65rem;
-      color: var(--gray);
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      opacity: 0.75;
+      padding-left: 0.35rem;
     }
   }
 }
