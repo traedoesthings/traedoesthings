@@ -494,3 +494,66 @@ article table td,
 article table th {
   padding: 0.45rem 0.75rem;
 }
+
+// ============================================================
+// Widen ingredient (and other content) tables
+// ============================================================
+article table {
+  width: 100%;
+  table-layout: auto;
+}
+
+// First column (ingredient / label) gets more room, second column (amount) stays compact
+article table td:first-child,
+article table th:first-child {
+  width: 55%;
+}
+
+// ============================================================
+// Darkmode toggle: float next to search icon (top-right)
+// ============================================================
+.darkmode {
+  position: fixed;
+  top: 1rem;
+  right: 4rem; // sits to the left of the search icon (search is at right: 1rem)
+  z-index: 200;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: 999px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  color: var(--darkgray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+
+  &:hover {
+    border-color: var(--secondary);
+    color: var(--secondary);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (max-width: 800px) {
+  .darkmode {
+    top: 0.75rem;
+    right: 3.5rem;
+    width: 40px;
+    height: 40px;
+  }
+}
