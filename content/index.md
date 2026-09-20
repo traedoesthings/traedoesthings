@@ -4,20 +4,7 @@ title: Traedoesthings
 
 A personal library of recipes, guides, and quick references I want handy from anywhere. Written for me, shared in case any of it is useful to you.
 
-<div class="home-nav">
-  <a class="home-nav-card" href="/guides">
-    <h3>Guides</h3>
-    <p>Long-form how-tos and reference material</p>
-  </a>
-  <a class="home-nav-card" href="/recipes">
-    <h3>Recipes</h3>
-    <p>Food I cook regularly, mostly for my own reference</p>
-  </a>
-  <a class="home-nav-card" href="/quick-refs">
-    <h3>Quick Refs</h3>
-    <p>Short cheat sheets I look up often</p>
-  </a>
-</div>
+<div class="home-nav"><a class="home-nav-card" href="/guides"><span class="card-title">Guides</span><span class="card-desc">Long-form how-tos and reference material</span></a><a class="home-nav-card" href="/recipes"><span class="card-title">Recipes</span><span class="card-desc">Food I cook regularly, mostly for my own reference</span></a><a class="home-nav-card" href="/quick-refs"><span class="card-title">Quick Refs</span><span class="card-desc">Short cheat sheets I look up often</span></a></div>
 
 ## Recent
 
