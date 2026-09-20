@@ -85,7 +85,19 @@
 // (targets Quartz's PageList output on /recipes, /guides, etc.)
 // ============================================================
 
-.page-listing .section-ul {
+// Homepage 'Recent' section heading
+.recent-notes > h3 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-family: var(--headerFont);
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--dark);
+  letter-spacing: -0.01em;
+}
+
+.page-listing .section-ul,
+.recent-notes .recent-ul {
   list-style: none;
   padding: 0;
   margin: 1.5rem 0;
@@ -93,7 +105,8 @@
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 0.9rem;
 
-  .section-li {
+  .section-li,
+  .recent-li {
     margin: 0;
     padding: 0;
 
