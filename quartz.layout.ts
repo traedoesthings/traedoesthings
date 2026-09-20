@@ -38,6 +38,10 @@ export const defaultContentPageLayout: PageLayout = {
       component: Component.ShareShoppingList(),
       condition: (page) => (page.fileData.frontmatter?.tags ?? []).includes("recipe"),
     }),
+    Component.ConditionalRender({
+      component: Component.SharePage(),
+      condition: (page) => page.fileData.slug !== "index" && !(page.fileData.slug ?? "").endsWith("/index"),
+    }),
   ],
   left: [
     Component.PageTitle(),

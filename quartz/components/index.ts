@@ -20,6 +20,7 @@ import DesktopOnly from "./DesktopOnly"
 import MobileOnly from "./MobileOnly"
 import RecentNotes from "./RecentNotes"
 import ShareShoppingList from "./ShareShoppingList"
+import SharePage from "./SharePage"
 import Breadcrumbs from "./Breadcrumbs"
 import Comments from "./Comments"
 import Flex from "./Flex"
@@ -47,6 +48,7 @@ export {
   MobileOnly,
   RecentNotes,
   ShareShoppingList,
+  SharePage,
   NotFound,
   Breadcrumbs,
   Comments,
