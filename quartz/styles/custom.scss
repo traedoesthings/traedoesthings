@@ -234,3 +234,50 @@
     }
   }
 }
+
+// ============================================================
+// Mobile overflow fixes
+// Something on wide recipe tables (long ingredient rows) is
+// forcing horizontal overflow, so the whole page renders zoomed
+// in on phones. Constrain and scroll instead.
+// ============================================================
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+@media (max-width: 800px) {
+  // Wrap tables in a horizontal scroll container so a wide row
+  // doesn't blow out the viewport width
+  article table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  // Long code, links, and pre blocks
+  article pre,
+  article code {
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  article img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  // Tighten card min-widths so 2-per-row doesn't force overflow
+  .home-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .page-listing .section-ul {
+    grid-template-columns: 1fr;
+  }
+}
