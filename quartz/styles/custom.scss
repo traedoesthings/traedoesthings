@@ -7,7 +7,7 @@
 .home-nav {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
+  gap: 1.25rem;
   margin: 2.5rem 0 3rem;
 }
 
@@ -15,9 +15,11 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  min-height: 140px;
-  padding: 1.5rem 1.5rem 1.35rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 170px;
+  padding: 2rem 1.75rem;
   border: 1px solid var(--lightgray);
   border-radius: 14px;
   background: var(--light);
@@ -46,7 +48,8 @@
 
   .card-title {
     display: block;
-    margin: 0 0 0.4rem 0;
+    margin: 0 0 0.5rem 0;
+    text-align: center;
     font-family: var(--headerFont);
     font-size: 1.5rem;
     font-weight: 500;
@@ -58,6 +61,7 @@
   .card-desc {
     display: block;
     margin: 0;
+    text-align: center;
     color: var(--darkgray);
     font-size: 0.88rem;
     line-height: 1.45;
@@ -103,7 +107,13 @@
   margin: 1.5rem 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 0.9rem;
+  gap: 1.25rem;
+}
+
+// Recent Notes on homepage: single column stack
+.recent-notes .recent-ul {
+  grid-template-columns: 1fr;
+  gap: 1rem;
 
   .section-li,
   .recent-li {
