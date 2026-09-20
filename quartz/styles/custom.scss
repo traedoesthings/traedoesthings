@@ -472,3 +472,25 @@ article table {
     }
   }
 }
+
+// ============================================================
+// Tighten gap between headings and tables
+// ============================================================
+
+article h2 + table,
+article h3 + table,
+article h2 + p + table,
+article h3 + p + table {
+  margin-top: 0.3rem;
+}
+
+article h2,
+article h3 {
+  margin-bottom: 0.5rem;
+}
+
+// Table cell padding inside recipe/quick-ref tables
+article table td,
+article table th {
+  padding: 0.45rem 0.75rem;
+}
