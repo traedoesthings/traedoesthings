@@ -285,14 +285,20 @@ article img {
   height: auto;
 }
 
-// Tables become scrollable blocks so long ingredient names don't push
-article > table,
-article > .table-wrapper > table,
+// Tables: fit within container, wrap cell content rather than scroll
 article table {
-  display: block;
   max-width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  table-layout: fixed;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+article table td,
+article table th {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 @media (max-width: 800px) {
