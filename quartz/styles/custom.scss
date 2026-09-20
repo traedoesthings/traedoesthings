@@ -571,3 +571,44 @@ article table th:first-child {
     height: 40px;
   }
 }
+
+// ============================================================
+// Overrides: Quartz-default rules that were fighting our styles
+// ============================================================
+
+// Quartz wraps every markdown table in a .table-container with
+// overflow-x: auto — kill it so tables just fit their container
+.table-container {
+  overflow-x: visible !important;
+  overflow: visible !important;
+}
+
+.table-container > table {
+  width: 100% !important;
+  table-layout: fixed;
+  margin: 1rem 0 !important;
+  padding: 0 !important;
+}
+
+.table-container th,
+.table-container td {
+  min-width: 0 !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+// Recent Notes list: force grid with visible gap. Quartz's
+// .recent-notes > ul.recent-ul selector is higher specificity than
+// our shared shortcut, so we repeat it verbatim here.
+.recent-notes > ul.recent-ul {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+
+  & > li {
+    margin: 0 !important;
+  }
+}
