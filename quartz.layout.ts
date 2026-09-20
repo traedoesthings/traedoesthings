@@ -26,6 +26,10 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
+    Component.ConditionalRender({
+      component: Component.ShareShoppingList(),
+      condition: (page) => (page.fileData.frontmatter?.tags ?? []).includes("recipe"),
+    }),
   ],
   left: [
     Component.PageTitle(),
