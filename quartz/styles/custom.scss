@@ -242,69 +242,79 @@
 // in on phones. Constrain and scroll instead.
 // ============================================================
 
+// Prevent long strings (URLs, hashes, unbroken text) from pushing the layout
 html,
 body {
   max-width: 100%;
-  overflow-x: hidden;
+}
+
+article {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+// Long URLs, code, and pre should wrap rather than push the page
+article a,
+article code {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+article pre {
+  overflow-x: auto;
+  max-width: 100%;
+  white-space: pre;
+}
+
+article pre code {
+  overflow-wrap: normal;
+  word-break: normal;
+  white-space: pre;
+}
+
+article img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Tables become scrollable blocks so long ingredient names don't push
+article > table,
+article > .table-wrapper > table,
+article table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 @media (max-width: 800px) {
-  // Guarantee a 1rem side gutter on mobile since Quartz's own
-  // .page padding sometimes doesn't reach edge-hugging children
-  body > #quartz-root,
-  body > div,
+  // Explicit side gutter with iPhone notch support
   .page,
-  .page > article,
-  main {
-    padding-left: max(1rem, env(safe-area-inset-left));
-    padding-right: max(1rem, env(safe-area-inset-right));
+  main > article {
+    padding-left: max(1rem, env(safe-area-inset-left)) !important;
+    padding-right: max(1rem, env(safe-area-inset-right)) !important;
     box-sizing: border-box;
   }
 
-  // But don't double-pad: strip inner children of extra side padding
-  .page > article {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  // Wrap tables in a horizontal scroll container so a wide row
-  // doesn't blow out the viewport width
-  article table {
-    display: block;
-    max-width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  // Long code, links, and pre blocks
-  article pre,
-  article code {
-    max-width: 100%;
-    overflow-x: auto;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
-
-  article img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  // Tighten card grids to single column
-  .home-nav {
+  // Collapse card grids to a single column
+  .home-nav,
+  .page-listing .section-ul,
+  .recent-notes .recent-ul {
     grid-template-columns: 1fr;
   }
 
-  .page-listing .section-ul {
-    grid-template-columns: 1fr;
-  }
-
-  // Make sure cards themselves don't touch edges either
+  // Ensure cards don't blow past their container
   .home-nav-card,
-  .page-listing .section-ul .section,
-  .recent-notes .recent-ul .section {
-    margin-left: 0;
-    margin-right: 0;
+  .page-listing .section,
+  .recent-notes .section {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  // Smaller heading sizes on mobile so wide titles don't overflow
+  article h1 {
+    font-size: 1.6rem !important;
+    overflow-wrap: break-word;
   }
 }
 
