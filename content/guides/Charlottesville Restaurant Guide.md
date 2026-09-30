@@ -1,8 +1,13 @@
 ---
 title: Charlottesville Restaurant Guide
 date: 2026-09-30
-tags: [charlottesville, restaurants, food, local, guide]
-draft: true
+tags:
+  - charlottesville
+  - restaurants
+  - food
+  - local
+  - guide
+draft: false
 ---
 
 Heading to Charlottesville, or just looking for somewhere good to eat? These are the restaurants I recommend, grouped by price, with the dishes I would order and quick notes on parking and reservations.
@@ -23,7 +28,7 @@ Heading to Charlottesville, or just looking for somewhere good to eat? These are
 | Guajiros Miami Eatery | Cuban and Latin American | \$ |
 | Mockingbird | Southern comfort food | \$\$ |
 | Smyrna | Aegean Mediterranean | \$\$\$ |
-| [Restaurant name] | [Cuisine] | \$\$\$\$ |
+| Fleurie | French | \$\$\$\$ |
 
 ## \$ Everyday
 
@@ -119,27 +124,17 @@ Eclectic Mediterranean food with Aegean influences, and one of my favorite place
 
 ## \$\$\$\$ Special Occasion
 
-### [Restaurant name]
+### Fleurie
 
-[One or two sentences on what makes this place worth a visit.]
+Classic French technique meets local ingredients in an intimate dining room right on the Downtown Mall, with a patio for when the weather cooperates. This is the place I pick when the occasion calls for it. The staff know their stuff, and the wine list leans French and Virginia.
 
-**What to order:**
+**How it works:** Fleurie is a tasting menu format at \$119 per person. You skip the agonizing over the menu, sit back, and let the kitchen run the show. Expect a multi-course parade of plates, so pace yourself, wear the forgiving pants, and do not fill up on bread. It is one of those meals you plan an evening around, and worth it.
 
-*Appetizers*
+**Address:** 108 3rd St NE, Charlottesville ([website](https://www.fleurierestaurant.com/))
 
-- [Menu item], [short note]
+**Parking:** It is on the Downtown Mall, and there are multiple paid lots nearby.
 
-*Entrees*
-
-- [Menu item], [short note]
-
-*Dessert*
-
-- [Menu item], [short note]
-
-**Parking:** [Where to park and what to expect]
-
-**Reservations:** [Recommended, accepted, or walk-in only]
+**Reservations:** Required. Book through their website or call (434) 971-7800.
 
 ## Good to Know
 
