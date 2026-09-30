@@ -21,6 +21,9 @@ import MobileOnly from "./MobileOnly"
 import RecentNotes from "./RecentNotes"
 import ShareShoppingList from "./ShareShoppingList"
 import SharePage from "./SharePage"
+import PrintPage from "./PrintPage"
+import TableLabels from "./TableLabels"
+import HomeHero from "./HomeHero"
 import Breadcrumbs from "./Breadcrumbs"
 import Comments from "./Comments"
 import Flex from "./Flex"
@@ -49,6 +52,9 @@ export {
   RecentNotes,
   ShareShoppingList,
   SharePage,
+  PrintPage,
+  TableLabels,
+  HomeHero,
   NotFound,
   Breadcrumbs,
   Comments,

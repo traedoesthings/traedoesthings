@@ -5,10 +5,12 @@ import * as Plugin from "./quartz/plugins"
  * Quartz 4 Configuration
  *
  * See https://quartz.jzhao.xyz/configuration for more information.
+ *
+ * CHANGED for the redesign: pageTitle, typography, colors (Modernist + orange).
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Traedoesthings",
+    pageTitle: "TraeDoesThings",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
@@ -30,32 +32,34 @@ const config: QuartzConfig = {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Fraunces",
-        body: "Inter",
+        header: "Archivo",
+        body: "Archivo",
         code: "JetBrains Mono",
       },
       colors: {
+        // Light is the secondary theme
         lightMode: {
-          light: "#faf8f8",
-          lightgray: "#e5e5e5",
-          gray: "#b8b8b8",
-          darkgray: "#4e4e4e",
-          dark: "#2b2b2b",
-          secondary: "#284b63",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
-          textHighlight: "#fff23688",
+          light: "#f3f2f2",
+          lightgray: "#9f9d9d", // rules / dividers
+          gray: "#7d7979",
+          darkgray: "#444141", // body text
+          dark: "#201e1d", // headings
+          secondary: "#a83c00", // links (deep orange for text contrast)
+          tertiary: "#e85d04", // hover / brand orange
+          highlight: "rgba(232, 93, 4, 0.12)",
+          textHighlight: "#e85d0455",
         },
+        // Dark is the primary theme
         darkMode: {
-          light: "#161618",
-          lightgray: "#393639",
-          gray: "#646464",
-          darkgray: "#d4d4d4",
-          dark: "#ebebec",
-          secondary: "#7b97aa",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
-          textHighlight: "#b3aa0288",
+          light: "#201e1d",
+          lightgray: "#747372", // rules / dividers
+          gray: "#9a9796",
+          darkgray: "#dcdad9", // body text
+          dark: "#f3f2f2", // headings
+          secondary: "#ff7a35", // links
+          tertiary: "#e85d04", // hover / brand orange
+          highlight: "rgba(232, 93, 4, 0.18)",
+          textHighlight: "#e85d0466",
         },
       },
     },
