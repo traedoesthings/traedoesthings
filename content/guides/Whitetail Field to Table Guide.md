@@ -2,7 +2,7 @@
 title: Whitetail Field to Table Guide
 date: 2026-09-29
 tags: [hunting, whitetail, venison, butchering, guide]
-draft: false
+draft: true
 ---
 
 A start-to-finish guide for taking a whitetail from the field to the freezer: tagging and reporting in Virginia, field dressing, cooling, aging, breaking the deer down, and cooking the cuts. Pair it with [[Meat Cooking Temps by Cut]] when you are ready to cook.
