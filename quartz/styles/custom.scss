@@ -945,12 +945,21 @@ h2#method ~ h3 ~ p {
   &[data-callout="danger"] {
     background: var(--brand) !important;
     border-color: var(--brand) !important;
+    --color: #201e1d !important;
 
+    // Quartz colors the title/icon with the callout's accent, which is orange-on-orange here.
+    // Force everything to ink for contrast.
+    *,
     .callout-title,
     .callout-title-inner,
+    .callout-icon,
     .callout-content,
     .callout-content p {
-      color: var(--ink);
+      color: var(--ink) !important;
+    }
+
+    svg {
+      stroke: var(--ink) !important;
     }
   }
 }
