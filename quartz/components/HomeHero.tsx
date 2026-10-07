@@ -4,18 +4,19 @@ import { FullSlug, resolveRelative } from "../util/path"
 import script from "./scripts/homeHero.inline"
 
 const SECTIONS = [
-  { key: "recipes", label: "Recipes", desc: "Food I cook regularly, mostly for my own reference", one: "recipe", many: "recipes" },
-  { key: "guides", label: "Guides", desc: "Long-form how-tos and reference material", one: "guide", many: "guides" },
-  { key: "quick-refs", label: "Quick Refs", desc: "Short cheat sheets I look up often", one: "cheat sheet", many: "cheat sheets" },
+  { key: "cooks", label: "Trae Cooks Things", desc: "Recipes I cook regularly, sorted by soups, chicken, breads and more", one: "page", many: "pages", featured: true },
+  { key: "needs-help", label: "Trae Needs Help", desc: "Cheat sheets and setup guides for when I am mid-task", one: "page", many: "pages" },
+  { key: "reviews", label: "Trae Reviews Things", desc: "Takes on TV, movies, books, gear and tech", one: "review", many: "reviews" },
+  { key: "goes-places", label: "Trae Goes Places", desc: "Local favorites and places worth the trip", one: "page", many: "pages" },
 ]
 
 // tags used to classify notes, not to browse by
-const HIDDEN_TAGS = ["recipe", "guide", "quick-ref"]
+const HIDDEN_TAGS = ["recipe", "guide", "quick-ref", "review"]
 
 const HomeHero: QuartzComponent = ({ allFiles, fileData }: QuartzComponentProps) => {
   const from = fileData.slug!
   const count = (key: string) =>
-    allFiles.filter((f) => f.slug?.startsWith(key + "/") && f.slug !== key + "/index").length
+    allFiles.filter((f) => f.slug?.startsWith(key + "/") && !f.slug.endsWith("/index")).length
 
   const tagCounts = new Map<string, number>()
   allFiles.forEach((f) =>
@@ -43,7 +44,7 @@ const HomeHero: QuartzComponent = ({ allFiles, fileData }: QuartzComponentProps)
         {SECTIONS.map((s) => {
           const n = count(s.key)
           return (
-            <a class="home-section" href={resolveRelative(from, (s.key + "/index") as FullSlug)}>
+            <a class={s.featured ? "home-section featured" : "home-section"} href={resolveRelative(from, (s.key + "/index") as FullSlug)}>
               <span class="home-section-count">
                 {n} {n === 1 ? s.one : s.many}
               </span>

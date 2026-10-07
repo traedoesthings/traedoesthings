@@ -23,11 +23,22 @@ const sidebar = [
     ],
   }),
   Component.Explorer({
-    title: "Library",
+    title: "Trae...",
     folderDefaultState: "collapsed",
     folderClickBehavior: "link",
     useSavedState: true,
     filterFn: (node) => node.slugSegment !== "tags",
+    // sortFn is stringified and run in the browser, so it must be self-contained
+    sortFn: (a, b) => {
+      const order = ["cooks", "needs-help", "reviews", "goes-places", "tv", "movies", "books", "gear", "tech"]
+      const ia = order.indexOf(a.slugSegment)
+      const ib = order.indexOf(b.slugSegment)
+      if (ia !== -1 || ib !== -1) return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib)
+      if (a.isFolder === b.isFolder) {
+        return a.displayName.localeCompare(b.displayName, undefined, { numeric: true, sensitivity: "base" })
+      }
+      return a.isFolder ? -1 : 1
+    },
   }),
 ]
 
