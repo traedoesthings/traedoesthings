@@ -2,7 +2,7 @@
 title: "Brenda's Tater Tot Casserole"
 aliases: ["recipes/Brendas Tater Tot Casserole"]
 date: 2026-09-29
-tags: [recipe, casserole, comfort-food, dinner]
+tags: [recipe, casserole, comfort-food, breakfast]
 draft: false
 ---
 
