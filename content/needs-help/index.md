@@ -1,5 +1,5 @@
 ---
-title: Trae Needs Help
+title: Trae Needs a Cheat Sheet
 aliases: ["guides/index", "quick-refs/index"]
 ---
 
