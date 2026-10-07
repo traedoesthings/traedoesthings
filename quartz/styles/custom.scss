@@ -234,6 +234,31 @@ body {
   .folder-icon {
     color: var(--dark);
   }
+
+  // Desktop sidebar: keep wrapped labels tight and pin the chevron to the first line
+  @media all and not ($mobile) {
+    align-items: flex-start;
+
+    div > a,
+    div > button span {
+      line-height: 1.3;
+      letter-spacing: 0.08em;
+    }
+
+    div > a {
+      padding: 7px 0;
+    }
+
+    div > button {
+      padding-top: 7px;
+      padding-bottom: 7px;
+      align-items: flex-start;
+    }
+
+    .folder-icon {
+      margin-top: 10px;
+    }
+  }
 }
 
 // ---------- Mobile top bar ----------

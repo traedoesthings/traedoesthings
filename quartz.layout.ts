@@ -32,9 +32,9 @@ const sidebar = [
     // Sidebar labels are short because the "Trae..." header above them supplies the first word.
     mapFn: (node) => {
       const labels: Record<string, string> = {
-        cooks: "Cooks Things",
+        cooks: "Cooks",
         reviews: "Reviews Things",
-        "needs-help": "Needs Help",
+        "needs-help": "Needs a Cheat Sheet",
         "goes-places": "Goes Places",
       }
       if (labels[node.slugSegment]) node.displayName = labels[node.slugSegment]

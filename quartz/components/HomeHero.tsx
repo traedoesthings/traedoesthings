@@ -5,7 +5,7 @@ import script from "./scripts/homeHero.inline"
 
 const SECTIONS = [
   { key: "cooks", label: "Trae Cooks Things", desc: "Recipes I cook regularly, sorted by soups, chicken, breads and more", one: "page", many: "pages", featured: true },
-  { key: "needs-help", label: "Trae Needs Help", desc: "Cheat sheets and setup guides for when I am mid-task", one: "page", many: "pages" },
+  { key: "needs-help", label: "Trae Needs a Cheat Sheet", desc: "Cheat sheets and setup guides for when I am mid-task", one: "page", many: "pages" },
   { key: "reviews", label: "Trae Reviews Things", desc: "Takes on TV, movies, books, gear and tech", one: "review", many: "reviews" },
   { key: "goes-places", label: "Trae Goes Places", desc: "Local favorites and places worth the trip", one: "page", many: "pages" },
 ]
