@@ -28,6 +28,17 @@ const sidebar = [
     folderClickBehavior: "link",
     useSavedState: true,
     filterFn: (node) => node.slugSegment !== "tags",
+    // mapFn and sortFn are stringified and run in the browser, so they must be self-contained.
+    // Sidebar labels are short because the "Trae..." header above them supplies the first word.
+    mapFn: (node) => {
+      const labels: Record<string, string> = {
+        cooks: "Cooks Things",
+        reviews: "Reviews Things",
+        "needs-help": "Needs Help",
+        "goes-places": "Goes Places",
+      }
+      if (labels[node.slugSegment]) node.displayName = labels[node.slugSegment]
+    },
     // sortFn is stringified and run in the browser, so it must be self-contained
     sortFn: (a, b) => {
       const order = ["cooks", "needs-help", "reviews", "goes-places", "tv", "movies", "books", "gear", "tech"]
