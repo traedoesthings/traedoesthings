@@ -1305,6 +1305,19 @@ article {
       }
     }
   }
+
+  // The ingredients panel sizes its last cell at 34% and right-aligns it for the desktop
+  // table. Its ID selector outranks the stacked-card rules above, which crushed the last
+  // value (e.g. Volume) to one character per line. Undo that once the table is stacked.
+  h2#ingredients + .table-container,
+  h2#ingredients ~ h3 + .table-container {
+    > table[data-stack] td:not(:first-child) {
+      width: auto;
+      text-align: left;
+      font-weight: 400;
+      color: var(--dark);
+    }
+  }
 }
 
 // ---------- Print: recipe-friendly, black on white ----------
