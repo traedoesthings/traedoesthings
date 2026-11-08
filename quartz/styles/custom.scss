@@ -830,6 +830,85 @@ ul.tags {
   }
 }
 
+// Sortable tables (notes with `sortable: true`): clickable headers on desktop,
+// a sort dropdown on phones (where headers are hidden by the card layout).
+.table-container > table[data-sortable] {
+  th.sortable-th {
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+
+    &:hover {
+      color: var(--dark);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--tertiary);
+      outline-offset: -2px;
+    }
+
+    .sort-arrow {
+      display: inline-block;
+      width: 1em;
+      margin-left: 4px;
+      color: var(--lightgray);
+    }
+
+    &.sorted {
+      color: var(--tertiary);
+
+      .sort-arrow {
+        color: var(--tertiary);
+      }
+    }
+  }
+}
+
+.sort-controls {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  margin: 0.5rem 0;
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+
+  select,
+  button {
+    min-height: 44px;
+    padding: 0 12px;
+    border: 1px solid var(--lightgray);
+    border-radius: 0;
+    background: var(--light);
+    color: var(--dark);
+    font: inherit;
+    font-size: 14px;
+    letter-spacing: normal;
+    text-transform: none;
+  }
+
+  select {
+    flex: 1;
+    min-width: 0;
+  }
+
+  button {
+    width: 44px;
+    padding: 0;
+    cursor: pointer;
+  }
+}
+
 // ---------- Recipe structure (from the standard note headings) ----------
 
 // "At a Glance": Yield | Prep | Cook as a ruled strip
@@ -1304,6 +1383,16 @@ article {
         content: none;
       }
     }
+  }
+
+  // Sortable tables: show the sort dropdown, and drop the empty-header (bar) column
+  // from the card since the cost value above it already says the same thing.
+  .sort-controls {
+    display: flex;
+  }
+
+  .table-container > table[data-sortable] td:not([data-label]) {
+    display: none;
   }
 
   // The ingredients panel sizes its last cell at 34% and right-aligns it for the desktop

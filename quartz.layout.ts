@@ -8,7 +8,7 @@ const isListing = (slug?: string) => isIndex(slug) || (slug ?? "").endsWith("/in
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [Component.TableLabels()], // also tags wide tables for the phone card layout
+  afterBody: [Component.TableLabels(), Component.SortableTables()], // TableLabels also tags wide tables for the phone card layout; SortableTables adds click-to-sort when a note sets `sortable: true`
   footer: Component.Footer({
     links: {},
   }),

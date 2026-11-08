@@ -23,6 +23,7 @@ import ShareShoppingList from "./ShareShoppingList"
 import SharePage from "./SharePage"
 import PrintPage from "./PrintPage"
 import TableLabels from "./TableLabels"
+import SortableTables from "./SortableTables"
 import HomeHero from "./HomeHero"
 import Breadcrumbs from "./Breadcrumbs"
 import Comments from "./Comments"
@@ -54,6 +55,7 @@ export {
   SharePage,
   PrintPage,
   TableLabels,
+  SortableTables,
   HomeHero,
   NotFound,
   Breadcrumbs,
